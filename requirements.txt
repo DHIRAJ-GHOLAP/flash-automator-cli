@@ -1,0 +1,9 @@
+# KDMC MyNet HTTP Report Automation Dependencies
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+weasyprint>=60.0
+pypdf>=4.0.0
+python-dotenv>=1.0.0
+
+# Testing & Quality
+pytest>=7.4.0

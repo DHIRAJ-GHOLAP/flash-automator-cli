@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# Testing & Cache
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local databases & logs
+*.db
+*.sqlite3
+*.log
+.DS_Store
+
+# Secrets & Environment variables
+.env
+.env.*
+!.env.example
+
+# Report Outputs & Diagnostics
+output/
+debug/
+*.pdf
+*.html
