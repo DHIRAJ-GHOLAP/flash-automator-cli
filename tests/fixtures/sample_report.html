@@ -1,0 +1,2271 @@
+
+
+
+<meta name="_csrf" content="86d644c8-6121-4fe0-8da7-32c044d06823" />
+<meta name="_csrf_header" content="X-CSRF-TOKEN" />
+
+
+
+
+
+
+
+
+
+
+<script src="js/account/accountFinancialReport.js"
+	type="text/javascript"></script>
+<script
+	src="assets/libs/excel-export/jquery.tablesorter.js"></script>
+<script
+	src="assets/libs/excel-export/jquery.tablesorter.pager.js"></script>
+<script>
+	$(function() {
+		$(".table").tablesorter().tablesorterPager({
+			container : $(".ts-pager"),
+			cssGoto : ".pagenum",
+			removeRows : false,
+			size: 12
+		});
+	});
+
+	$(document).ready(function() {
+		$('.fancybox').fancybox();
+	});
+	$(function() {
+
+		$(".table").tablesorter({
+
+			cssInfoBlock : "avoid-sort",
+
+		});
+
+	});
+</script>
+
+
+<!-- Start Content here -->
+<div class="content">
+	<div class="widget">
+		<div class="widget-header">
+			<h2 class="excel-title">Bank Account Wise Balance Statement</h2>
+		</div>
+		<div class="widget-content padding">
+			<div id="receipt">
+			<form action="" method="get" class="form-horizontal">
+				          <h2 class="excel-title" id="tlExcel" style="display:none">Bank Account Wise Balance Statement</h2>
+					<div class="form-group margin-top-10">
+						<div
+							class="col-xs-8 col-sm-8 col-sm-offset-2 col-xs-offset-1 text-center">
+							<h3 class="text-extra-large margin-bottom-0">
+								
+                                     Kalyan Dombivli Municipal Corporation<br>
+								
+								
+								Bank Account Wise Balance Statement
+							</h3>
+							<p>
+								<strong>From Date:</strong>10/10/2026 &nbsp; <strong>To Date:</strong>10/10/2026
+							</p>
+							<p>
+								<strong>Field Name:</strong>
+								
+									
+										HO Main Branch
+									
+								
+
+								
+							</p>
+						</div>
+						<div class="col-sm-2 col-xs-3 margin-top-10">
+							<p>
+								Date:
+								10/10/2026
+								<br>Time:
+								01:48 AM
+							</p>
+						</div>
+					</div>
+					<div class="margin-top-10">
+						<div id="export-excel">
+							<table class="table table-bordered table-condensed" id="importexcel">
+								<thead>
+									<tr>
+										<th width="1%" class="text-right">SR.NO</th>
+										<th width="6%">Bank Name/Br. Name</th>
+										<th width="2%">A/C Type</th>
+										<th width="6%">Bank a/c Name</th>
+										<th width="4%">Bank a/c No </th>
+										<th width="6%">Opening Balance Rs.</th>
+										<th width="4%">Receipts Amount Rs.</th>
+										<th width="4%">Payments Amount Rs.</th>
+										<th width="4%">Closing Balance Rs.</th>
+									</tr>
+								</thead>
+								<tfoot class="tfoot">
+
+									<tr>
+										<th colspan="7" class="ts-pager form-horizontal">
+											<div class="btn-group">
+												<button type="button" class="btn first">
+													<i class="fa fa-step-backward" aria-hidden="true"></i>
+												</button>
+												<button type="button" class="btn prev">
+													<i class="fa fa-arrow-left" aria-hidden="true"></i>
+												</button>
+											</div> <span class="pagedisplay"></span> <!-- this can be any element, including an input -->
+											<div class="btn-group">
+												<button type="button" class="btn next">
+													<i class="fa fa-arrow-right" aria-hidden="true"></i>
+												</button>
+												<button type="button" class="btn last">
+													<i class="fa fa-step-forward" aria-hidden="true"></i>
+												</button>
+											</div> <select class="pagesize input-mini form-control"
+											title="Select page size">
+												<option selected="selected" value="12" class="form-control">12</option>
+												<option value="20">20</option>
+												<option value="30">30</option>
+												<option value="all">All Records</option>
+										</select> <select class="pagenum input-mini form-control"
+											title="Select page number"></select>
+										</th>
+									</tr>
+								</tfoot>
+								<tbody>
+									
+										<tr>
+											<td style="text-align: right">1</td>
+											<td>AXIS BANK</td>
+											<td>Savings</td>
+											<td>TURNABLE PURCHASE LC</td>
+											<td>914010010716835</td>
+											<td style="text-align: right">1,01,67,090.70</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">1,01,67,090.70</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">2</td>
+											<td>AXIS BANK</td>
+											<td>Savings</td>
+											<td> LBT</td>
+											<td>912020036423835</td>
+											<td style="text-align: right">7,49,315.35</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">7,49,315.35</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">3</td>
+											<td>AXIS BANK</td>
+											<td>Savings</td>
+											<td>LBT</td>
+											<td>912020036423026</td>
+											<td style="text-align: right">77,297.22</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">77,297.22</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">4</td>
+											<td>AXIS BANK LTD</td>
+											<td>Savings</td>
+											<td>LBT</td>
+											<td>912020044659305</td>
+											<td style="text-align: right">1,46,62,043.45</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">1,46,62,043.45</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">5</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>NAGARI DALIT VASTI VIKAS YOJANA</td>
+											<td>99140100004479</td>
+											<td style="text-align: right">4,29,10,281.04</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">4,29,10,281.04</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">6</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>S.J.S.R.Y.SUB.FOR U.S.E/M.E & S.D.</td>
+											<td>99140100004589</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">7</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>NIRMAL MMR ABHIYAN</td>
+											<td>99140100007415</td>
+											<td style="text-align: right">80,05,742.15</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">80,05,742.15</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">8</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>WATER AND SEVRAGE LOAN REPAYMENT</td>
+											<td>99140100007683</td>
+											<td style="text-align: right">23,41,112.30</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">23,41,112.30</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">9</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>TREE FUND</td>
+											<td>99140100007690</td>
+											<td style="text-align: right">42,64,165.64</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">42,64,165.64</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">10</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>B.O.T FUND</td>
+											<td>99140100010065</td>
+											<td style="text-align: right">16,64,754.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">16,64,754.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">11</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>B.S.U.P. PHASE-I</td>
+											<td>99140100000006</td>
+											<td style="text-align: right">18,80,216.37</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">18,80,216.37</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">12</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>SATIS / SKYWALK PROJECT</td>
+											<td>99140100008921</td>
+											<td style="text-align: right">8,93,762.30</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">8,93,762.30</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">13</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>B.S.U.P PHASE IV</td>
+											<td>99140100010517</td>
+											<td style="text-align: right">10,55,00,341.31</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">10,55,00,341.31</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">14</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>SATIS SKYWALK KALYAN EAST</td>
+											<td>99140100009220</td>
+											<td style="text-align: right">93,33,061.48</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">93,33,061.48</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">15</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>B.S.U.P. PHASE-II</td>
+											<td>99140100010545</td>
+											<td style="text-align: right">15,92,247.80</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">15,92,247.80</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">16</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>JNNURM.150 DLL PANI PURVATHA PRAKALP</td>
+											<td>99140100010546</td>
+											<td style="text-align: right">17,06,704.41</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">17,06,704.41</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">17</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>JNNURM, PANI PURVATHA VITARAN VYAVASTHA</td>
+											<td>99140100010547</td>
+											<td style="text-align: right">26,02,106.60</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">26,02,106.60</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">18</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>ADHAR OLAHKPATRA (UTD)</td>
+											<td>99140100010618</td>
+											<td style="text-align: right">2,15,938.60</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">2,15,938.60</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">19</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>NAVIN VISHESH RASTE NIDHI</td>
+											<td>99140100011680</td>
+											<td style="text-align: right">18,90,05,551.01</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">18,90,05,551.01</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">20</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>ROAD TRENCHES</td>
+											<td>99140100001007</td>
+											<td style="text-align: right">1,22,90,919.11</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">1,22,90,919.11</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">21</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>VADHIV VIKAS SHULK </td>
+											<td>99140100016476</td>
+											<td style="text-align: right">3,40,34,46,956.26</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">3,40,34,46,956.26</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">22</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>WADEGHAR BOT PAKALP</td>
+											<td>99140200000835</td>
+											<td style="text-align: right">1,747.02</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">1,747.02</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">23</td>
+											<td>BANK OF BARODA</td>
+											<td>Current</td>
+											<td>GENERAL FUND</td>
+											<td>99140200000133</td>
+											<td style="text-align: right">1,33,92,57,808.30</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">1,33,92,57,808.30</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">24</td>
+											<td>BANK OF BARODA</td>
+											<td>Current</td>
+											<td>SALARY FUND </td>
+											<td>99140200000325</td>
+											<td style="text-align: right">63,24,96,855.52</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">63,24,96,855.52</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">25</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>WATER AND SEVRAGE FUND </td>
+											<td>99140100007684</td>
+											<td style="text-align: right">11,96,89,831.84</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">11,96,89,831.84</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">26</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>JAIVIK VIVIDHATA VYAVASTHAPAN SAMIT </td>
+											<td>99140100016194</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">27</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>MEDICAL OFFICER TITWALA URBAN HEALTH</td>
+											<td>99140100016213</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">28</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>JANGANANA 2021 NIDHI FUND</td>
+											<td>99140100016217</td>
+											<td style="text-align: right">55,91,710.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">55,91,710.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">29</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>15TH VITTA AYOG </td>
+											<td>99140100016255</td>
+											<td style="text-align: right">5,97,313.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">5,97,313.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">30</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>MJPJAY BAJ RR  HOSPITAL FUND</td>
+											<td>99140100016525</td>
+											<td style="text-align: right">20,53,373.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">20,53,373.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">31</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>MJPJAY SHASTRINAGAR HOSPITAL FUND</td>
+											<td>99140100016526</td>
+											<td style="text-align: right">11,35,230.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">11,35,230.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">32</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>MJPJAY HOLY CROSS HOSPITAL FUND</td>
+											<td>99140100016528</td>
+											<td style="text-align: right">6,05,228.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">6,05,228.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">33</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>MJPJAY BAI RUKHMINIBAI HOSPITAL FUND</td>
+											<td>99140100016637</td>
+											<td style="text-align: right">1,76,989.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">1,76,989.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">34</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>MMRDA ROAD WORK</td>
+											<td>99140100016650</td>
+											<td style="text-align: right">3,51,86,632.18</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">3,51,86,632.18</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">35</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>BSUP BENEFITIORES CONTRIBUTION</td>
+											<td>99140100010828</td>
+											<td style="text-align: right">13,00,272.36</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">13,00,272.36</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">36</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>KDMC PROVIDENT FUND</td>
+											<td>99140100003489</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">37</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>AAG SURAKSHA NIDHI FUND </td>
+											<td>99140100000544</td>
+											<td style="text-align: right">10,39,27,754.01</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">10,39,27,754.01</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">38</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>NATIONAL URBAN LIVELIHOOD MISSION (NULM)</td>
+											<td>99140100016460</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">39</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>BSUP PROJECT GHARKUL SALE</td>
+											<td>99140100016204</td>
+											<td style="text-align: right">5,06,24,719.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">5,06,24,719.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">40</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>15TH VITTA  AYOG (CSMW AND SWM)</td>
+											<td>99140100016259</td>
+											<td style="text-align: right">90,228.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">90,228.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">41</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>COVID-19 FUND</td>
+											<td>99140100016523</td>
+											<td style="text-align: right">17,60,434.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">17,60,434.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">42</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>MJPJAY NEON HOSPITAL FUND</td>
+											<td>99140100016527</td>
+											<td style="text-align: right">16,939.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">16,939.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">43</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>PRATHMIK MULBHUT SOYEE SUVIDHA</td>
+											<td>99140100016475</td>
+											<td style="text-align: right">2,99,37,36,843.69</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">2,99,37,36,843.69</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">44</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>SUVARNA JAYANTI SAHARI ROJGAR YOJNA SUBSIDY</td>
+											<td>99140100004657</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">45</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>NAGAR RACHANA NIDHI</td>
+											<td>99140100018380</td>
+											<td style="text-align: right">1,56,67,05,841.38</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">1,56,67,05,841.38</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">46</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>ANAMAT (DEPOSIT) FUND</td>
+											<td>99140100007693</td>
+											<td style="text-align: right">28,77,69,949.80</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">28,77,69,949.80</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">47</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>JNNURM DEVELOPMENT (ESCROW)</td>
+											<td>99140100010146</td>
+											<td style="text-align: right">14,68,86,565.01</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">14,68,86,565.01</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">48</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>KDMC ESCRO FUND</td>
+											<td>99140100010147</td>
+											<td style="text-align: right">75,244.90</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">75,244.90</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">49</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>BSUP BENEFITIORIS MAINTENANCE</td>
+											<td>99140100000815</td>
+											<td style="text-align: right">2,67,68,548.92</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">2,67,68,548.92</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">50</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>AMRUT- MALNISSARAN PHASE II </td>
+											<td>99140100015822</td>
+											<td style="text-align: right">11,21,67,137.89</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">11,21,67,137.89</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">51</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>AMRUT- MALNISSARAN PHASE I</td>
+											<td>99140100014326</td>
+											<td style="text-align: right">23,05,390.71</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">23,05,390.71</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">52</td>
+											<td>BANK OF BARODA</td>
+											<td>Current</td>
+											<td>SWACHHA MAHARASHTRA ABHIYAN (NAGRI)</td>
+											<td>99140100014176</td>
+											<td style="text-align: right">1,08,764.20</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">1,08,764.20</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">53</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>JAWAHARLAL NEHARU NAGRI URBUN REVOLVING</td>
+											<td>991401000010417</td>
+											<td style="text-align: right">8,67,185.36</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">8,67,185.36</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">54</td>
+											<td>BANK OF BARODA</td>
+											<td>Current</td>
+											<td>SALARY  RESERVE FUND</td>
+											<td>99140200000440</td>
+											<td style="text-align: right">47,72,399.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">47,72,399.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">55</td>
+											<td>BANK OF BARODA</td>
+											<td>Current</td>
+											<td> LBT </td>
+											<td>99140200000050</td>
+											<td style="text-align: right">10,990.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">10,990.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">56</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>RAJYASABHA KHASDAR RAMDAS ATHAVLE NIDHI</td>
+											<td>99140100018819</td>
+											<td style="text-align: right">59,49,692.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">59,49,692.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">57</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>KDMC BHARATRATNA DR BABASAHEB AMBEDKAR SAMAJIK VIKAS YOJANA NIDHI KHATE</td>
+											<td>99140100019565</td>
+											<td style="text-align: right">2,66,61,444.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">2,66,61,444.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">58</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>Bank Gurantee-1 (Short/Long Term Deposit)</td>
+											<td>00000001</td>
+											<td style="text-align: right">55,29,725.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">55,29,725.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">59</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>Bank Gurantee-2 WATER SUPPLY</td>
+											<td>00000002</td>
+											<td style="text-align: right">30,95,080.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">30,95,080.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">60</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>Bank Gurantee-3 WATER SUPPLY</td>
+											<td>00000003</td>
+											<td style="text-align: right">34,63,525.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">34,63,525.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">61</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>KDMC 138 KALYAN WEST VIDHANSABHA MATADAR SANGH NIDHI KHATE OLD AC</td>
+											<td>99140100019549</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">62</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>KDMC 142 KALYAN EAST VIDHANSABHA MATADAR SANGH NIDHI KHATE</td>
+											<td>99140100019550</td>
+											<td style="text-align: right">3,75,64,884.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">3,75,64,884.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">63</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>KDMC 143 DOMBIVLI VIDHANSABHA MATADAR SANGH NIDHI KHATE</td>
+											<td>99140100019551</td>
+											<td style="text-align: right">1,48,05,634.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">1,48,05,634.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">64</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>KDMC 144 KALYAN GRAMIN VIDHANSABHA MATADAR SANGH NIDHI KHATE OLD AC</td>
+											<td>99140100019552</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">65</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>KDMC 144 KALYAN GRAMIN VIDHAN SABHA MATADAR SANGH NIDHI KHATE NEW AC</td>
+											<td>99140100019553</td>
+											<td style="text-align: right">50,94,592.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">50,94,592.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">66</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>KDMC 138 KALYAN WEST VIDHANSABHA MATADAR SANGH NIDHI KHATE NEW AC</td>
+											<td>99140100019555</td>
+											<td style="text-align: right">3,75,53,177.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">3,75,53,177.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">67</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>KDMC VIDHANSABHA SADASYA NIDHI KHATE</td>
+											<td>99140100019556</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">68</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>KDMC VIKAS ADHIBHAR NIDHI KHATE</td>
+											<td>99140100019557</td>
+											<td style="text-align: right">3,84,23,630.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">3,84,23,630.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">69</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>KDMC SHIKSHAN VIBHAG NIDHI KHATE</td>
+											<td>99140100019558</td>
+											<td style="text-align: right">2,15,22,676.39</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">2,15,22,676.39</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">70</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>KDMC BHAVISHA NIRVAH NIDHI KHATE</td>
+											<td>99140100019559</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">71</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>KDMC 23 BHIWANDI LOKSABHA MATADAR SANGH NIDHI KHATE</td>
+											<td>99140100019560</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">72</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>KDMC 24 KALYAN LOKSABHA MATADAR SANGH NIDHI KHATE</td>
+											<td>99140100019561</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">73</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>KDMC RAJYASABHA KHASDAR DR VINAY SAHASTRABUDHE NIDHI KHATE</td>
+											<td>99140100019562</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">74</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>KDMC RAJYASABHA KHASDAR SHRI RAMDAS ATHAVALE NIDHI KHATE </td>
+											<td>99140100019563</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">75</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>KDMC KHASDAR SHRI SANJAY RAUT NIDHI KHATE</td>
+											<td>99140100019564</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">76</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>KDMC 23 BHIWANDI LOKSABHA MATADAR SANGH NIDHI KHATE 17TH</td>
+											<td>99140100019568</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">77</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>KDMC 24 KALYAN LOKSABHA MATADAR SANGH NIDHI KHATE 17TH</td>
+											<td>99140100019566</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">78</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>KDMC M S J N MAHA RASTE DEV YOJANA PHASE 1 NIDHI KHATE</td>
+											<td>99140100019567</td>
+											<td style="text-align: right">2,08,14,732.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">2,08,14,732.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">79</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>MSJN MAHA RASTE YOJANA PHASE 2 NIDHI KHATE</td>
+											<td>99140100019569</td>
+											<td style="text-align: right">1,89,63,333.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">1,89,63,333.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">80</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>KDMC TAX COLLECTION FUND AC BIB</td>
+											<td>99140200001926</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">81</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>KALYAN DOMBIVILI MAHANAGAR PALIKA PARIKSHA SHULK NIDHI KHATE</td>
+											<td>99140100019426</td>
+											<td style="text-align: right">4,32,51,311.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">4,32,51,311.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">82</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>MP/MLA RAJYASABHA KHASDAR ANIL DESAI NIDHI KHATE</td>
+											<td>99140100019135</td>
+											<td style="text-align: right">8,06,911.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">8,06,911.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">83</td>
+											<td>BANK OF BARODA</td>
+											<td>Savings</td>
+											<td>KDMC RAJYA NADI SAVARDHAN YOJANA</td>
+											<td>99140100020005</td>
+											<td style="text-align: right">2,80,16,096.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">2,80,16,096.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">84</td>
+											<td>BANK OF INDIA</td>
+											<td>Savings</td>
+											<td>LBT</td>
+											<td>2520910000001</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">85</td>
+											<td>BANK OF MAHARASHTRA</td>
+											<td>Current</td>
+											<td>GHANKACHARA VYAVASTHAPAN</td>
+											<td>60253726582</td>
+											<td style="text-align: right">14,22,05,911.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">14,22,05,911.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">86</td>
+											<td>BANK OF MAHARASHTRA</td>
+											<td>Savings</td>
+											<td>GOVT. BODY SAVING ACCOUNT</td>
+											<td>60406069261</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">87</td>
+											<td>BANK OF MAHARASHTRA</td>
+											<td>Current</td>
+											<td>DR BABASAHEB SHRAM SAFALYA YOJNA</td>
+											<td>60068909419</td>
+											<td style="text-align: right">5,47,59,561.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">5,47,59,561.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">88</td>
+											<td>BANK OF MAHARASHTRA</td>
+											<td>Savings</td>
+											<td>AMRUT YOJANA HOLDING A/C</td>
+											<td>60419174294</td>
+											<td style="text-align: right">5,89,86,648.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">5,89,86,648.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">89</td>
+											<td>BANK OF MAHARASHTRA</td>
+											<td>Current</td>
+											<td>KDMC GRAS FUND A/C</td>
+											<td>60473945298</td>
+											<td style="text-align: right">9,32,23,347.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">9,32,23,347.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">90</td>
+											<td>BANK OF MAHARASHTRA</td>
+											<td>Savings</td>
+											<td>IHHL/CT/PT/ASPIRATIONAL TOILETS</td>
+											<td>60470807522</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">91</td>
+											<td>BANK OF MAHARASHTRA</td>
+											<td>Savings</td>
+											<td>USED WATER MANAGEMENT (UWM)</td>
+											<td>60470804917</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">92</td>
+											<td>BANK OF MAHARASHTRA</td>
+											<td>Savings</td>
+											<td>SOLID WASTE MANAGEMENT (SWM)</td>
+											<td>60470806845</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">93</td>
+											<td>BANK OF MAHARASHTRA</td>
+											<td>Savings</td>
+											<td>IEC AND BEHAVIOUR CHANGE (IEC&BC)</td>
+											<td>60470806595</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">94</td>
+											<td>BANK OF MAHARASHTRA</td>
+											<td>Savings</td>
+											<td>CAPACITY BUILDING SKILL DEVELOPMENT & KNOWLEDGE MANAGEMENT</td>
+											<td>60470807215</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">95</td>
+											<td>BANK OF MAHARASHTRA</td>
+											<td>Current</td>
+											<td>IHHL/CT/PT/ASPIRATIONAL TOILETS</td>
+											<td>604708088741</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">96</td>
+											<td>BANK OF MAHARASHTRA</td>
+											<td>Current</td>
+											<td>USED WATER MANAGEMENT (UWM)</td>
+											<td>60470808184</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">97</td>
+											<td>BANK OF MAHARASHTRA</td>
+											<td>Current</td>
+											<td>SOLID WASTE MANAGEMENT (SWM)</td>
+											<td>60470807907</td>
+											<td style="text-align: right">42,73,782.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">42,73,782.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">98</td>
+											<td>BANK OF MAHARASHTRA</td>
+											<td>Current</td>
+											<td>IEC AND BEHAVIOUR CHANGE (IEC&BC)</td>
+											<td>60470808344</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">99</td>
+											<td>BANK OF MAHARASHTRA</td>
+											<td>Current</td>
+											<td>CAPACITY BUILDING SKILL DEVELOPMENT & KNOWLEDGE MANAGEMENT</td>
+											<td>60470808504</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">100</td>
+											<td>BANK OF MAHARASHTRA</td>
+											<td>Savings</td>
+											<td>KDMC 42170541 - MAHANAGARPALIKA SHETRAT MULBHUT S SUVIDHA </td>
+											<td>60566903716</td>
+											<td style="text-align: right">9,32,41,790.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">9,32,41,790.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">101</td>
+											<td>BANK OF MAHARASHTRA</td>
+											<td>Savings</td>
+											<td>KDMC 22179483 - MAHANAGARPALIKA NAVYANE VI STARLELYA SIMAKSHETR</td>
+											<td>60566903932</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">102</td>
+											<td>CANARA BANK</td>
+											<td>Current</td>
+											<td>VISHESH NIDHI VIKAS ADHIBHAR NIDHI (TOWN PLANNING)</td>
+											<td>209101041615</td>
+											<td style="text-align: right">3,03,86,090.38</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">3,03,86,090.38</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">103</td>
+											<td>CANARA BANK</td>
+											<td>Current</td>
+											<td>MP/MLA FUND (OLD)</td>
+											<td>54722010146523</td>
+											<td style="text-align: right">5,39,10,681.73</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">5,39,10,681.73</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">104</td>
+											<td>CANARA BANK</td>
+											<td>Savings</td>
+											<td>MP/MLA -144 KALYAN GRAMIN VIDHAN SABHA MATDAR SANGH</td>
+											<td>54722010093034</td>
+											<td style="text-align: right">17,47,500.91</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">17,47,500.91</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">105</td>
+											<td>CANARA BANK</td>
+											<td>Savings</td>
+											<td>MP/MLA -138 KALYAN VIDHAN SABHA MATADAR SANGH</td>
+											<td>54722010093000</td>
+											<td style="text-align: right">1,13,95,008.70</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">1,13,95,008.70</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">106</td>
+											<td>CANARA BANK</td>
+											<td>Savings</td>
+											<td>MP/MLA -143 DOMBIVLI VIDHAN SABHA MATADAR SANGH</td>
+											<td>54722010093020</td>
+											<td style="text-align: right">5,53,695.35</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">5,53,695.35</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">107</td>
+											<td>CANARA BANK</td>
+											<td>Savings</td>
+											<td>MP/MLA -142 KALYAN VIDHAN SABHA MATADAR SANGH</td>
+											<td>54722010093015</td>
+											<td style="text-align: right">1,12,185.48</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">1,12,185.48</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">108</td>
+											<td>CANARA BANK</td>
+											<td>Savings</td>
+											<td>MP/MLA VIDHAN PARISHAD SADASYA </td>
+											<td>54722010102996</td>
+											<td style="text-align: right">57,05,846.10</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">57,05,846.10</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">109</td>
+											<td>CANARA BANK</td>
+											<td>Savings</td>
+											<td>MP/MLA -KALYAN WEST VIDHAN SABHA </td>
+											<td>54722010102977</td>
+											<td style="text-align: right">3,50,95,575.50</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">3,50,95,575.50</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">110</td>
+											<td>CANARA BANK</td>
+											<td>Savings</td>
+											<td>MP/MLA-144 KALYAN GRAMIN VISHANSABHA MATDAR SANGH</td>
+											<td>54722010102981</td>
+											<td style="text-align: right">92,238.50</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">92,238.50</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">111</td>
+											<td>CENTRAL BANK OF INDIA</td>
+											<td>Current</td>
+											<td>MP/MLA KHASDAR NIDHI</td>
+											<td>1145415684</td>
+											<td style="text-align: right">49,10,543.99</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">49,10,543.99</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">112</td>
+											<td>CENTRAL BANK OF INDIA</td>
+											<td>Current</td>
+											<td>MP/MLA -23 BHIWANDI LOKSABHA MATDAR SANGH NIDHI</td>
+											<td>3423515827</td>
+											<td style="text-align: right">8,60,055.54</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">8,60,055.54</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">113</td>
+											<td>CENTRAL BANK OF INDIA</td>
+											<td>Current</td>
+											<td>MP/MLA -24 KALYAN LOKSABHA MATADAR SANGH NIDHI (16th)</td>
+											<td>3423530662</td>
+											<td style="text-align: right">57,46,970.48</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">57,46,970.48</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">114</td>
+											<td>CENTRAL BANK OF INDIA</td>
+											<td>Current</td>
+											<td>MP/MLA -RAJYA SABHA KHASDAR NIDHI DR. VINAY SAHSTRABUDDHE</td>
+											<td>3663013174</td>
+											<td style="text-align: right">3,20,503.71</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">3,20,503.71</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">115</td>
+											<td>CENTRAL BANK OF INDIA</td>
+											<td>Current</td>
+											<td>MP/MLA -23 BHIVANDI LOKSABHA MATADAR SANGH NIDHI (17th)</td>
+											<td>3833954288</td>
+											<td style="text-align: right">14,98,804.91</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">14,98,804.91</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">116</td>
+											<td>CENTRAL BANK OF INDIA</td>
+											<td>Current</td>
+											<td>MP/MLA -SHRI SANJAY RAUT</td>
+											<td>3703556253</td>
+											<td style="text-align: right">19,39,513.78</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">19,39,513.78</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">117</td>
+											<td>CENTRAL BANK OF INDIA</td>
+											<td>Current</td>
+											<td>MP/MLA -SHRI RAMDAS ATHAVALE</td>
+											<td>3730955685</td>
+											<td style="text-align: right">10,45,159.89</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">10,45,159.89</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">118</td>
+											<td>CENTRAL BANK OF INDIA</td>
+											<td>Current</td>
+											<td>MP/MLA -24 KALYA LOKSABHA MATADAR SANGH NIDHI (17th)</td>
+											<td>3833953692</td>
+											<td style="text-align: right">60,46,336.10</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">60,46,336.10</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">119</td>
+											<td>CENTRAL BANK OF INDIA</td>
+											<td>Current</td>
+											<td>MP/MLA FUND KDMC MP SHRI MURLIDHARAN</td>
+											<td>3894062150</td>
+											<td style="text-align: right">3,45,459.18</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">3,45,459.18</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">120</td>
+											<td>FIX DEPOSIT</td>
+											<td>Savings</td>
+											<td>FIX DEPOSIT - KDMC</td>
+											<td>11111111</td>
+											<td style="text-align: right">6,60,62,091.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">6,60,62,091.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">121</td>
+											<td>HDFC BANK</td>
+											<td>Current</td>
+											<td>ONLINE-WEB PAYMENT</td>
+											<td>50200016992561</td>
+											<td style="text-align: right">9,59,337.68</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">9,59,337.68</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">122</td>
+											<td>HDFC BANK</td>
+											<td>Current</td>
+											<td>SMART CITY FUND A/C</td>
+											<td>50100142283400</td>
+											<td style="text-align: right">21,91,320.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">21,91,320.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">123</td>
+											<td>HDFC BANK</td>
+											<td>Current</td>
+											<td>HEAD OFFICE- L.B.TAX ACCT</td>
+											<td>50200002822800</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">124</td>
+											<td>HDFC BANK</td>
+											<td>Savings</td>
+											<td>ON LINE-WEB PAYMENT</td>
+											<td>1942300000037</td>
+											<td style="text-align: right">6,84,194.03</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">6,84,194.03</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">125</td>
+											<td>HDFC BANK</td>
+											<td>Current</td>
+											<td>15TH FINANCE COMMI AIR QUALITY</td>
+											<td>50100655530623</td>
+											<td style="text-align: right">37,90,39,326.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">37,90,39,326.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">126</td>
+											<td>HDFC BANK</td>
+											<td>Savings</td>
+											<td>KDMC- 15TH FIN.COM.MPC-CS AND MOWSW</td>
+											<td>50100640723178</td>
+											<td style="text-align: right">4,095.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">4,095.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">127</td>
+											<td>HDFC BANK</td>
+											<td>Savings</td>
+											<td>15th FINANCE COMMISSION-HOLDINGLD</td>
+											<td>50100655607602</td>
+											<td style="text-align: right">2,874.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">2,874.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">128</td>
+											<td>ICICI BANK LIMITED</td>
+											<td>Current</td>
+											<td>ONLINE-WEB PAYMENT</td>
+											<td>20305000881</td>
+											<td style="text-align: right">68,46,05,392.21</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">68,46,05,392.21</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">129</td>
+											<td>ICICI BANK LIMITED</td>
+											<td>Savings</td>
+											<td>PROPERTY TAX COLLECTION</td>
+											<td>020305006014</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">130</td>
+											<td>ICICI BANK LIMITED</td>
+											<td>Savings</td>
+											<td>PROPERTY TAX COLLECTION</td>
+											<td>020305006015</td>
+											<td style="text-align: right">10,46,030.31</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">10,46,030.31</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">131</td>
+											<td>IDBI BANK</td>
+											<td>Savings</td>
+											<td>PARIVAHAN NIDHI</td>
+											<td>0456104000060507</td>
+											<td style="text-align: right">3,41,840.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">3,41,840.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">132</td>
+											<td>IDBI BANK</td>
+											<td>Savings</td>
+											<td>LBT </td>
+											<td>0456102000005388</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">133</td>
+											<td>IDBI BANK</td>
+											<td>Savings</td>
+											<td>GHASARA NIDHI</td>
+											<td>0455104000065593</td>
+											<td style="text-align: right">2,61,19,889.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">2,61,19,889.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">134</td>
+											<td>IDBI BANK</td>
+											<td>Savings</td>
+											<td>ONLINE-WEB PAYMENT</td>
+											<td>118102000004862</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">135</td>
+											<td>IDBI BANK</td>
+											<td>Savings</td>
+											<td>IDBI HEAD OFFICE- ONLINE WEB ACCOUNT</td>
+											<td>0455102000023889</td>
+											<td style="text-align: right">19,32,41,751.43</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">19,32,41,751.43</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">136</td>
+											<td>IDBI BANK</td>
+											<td>Savings</td>
+											<td>PARKING CHARGES</td>
+											<td>0455102000025160</td>
+											<td style="text-align: right">49,09,275.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">49,09,275.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">137</td>
+											<td>IDBI BANK</td>
+											<td>Savings</td>
+											<td>IDBI - NIRMAL MMR ABHIYAN A/C </td>
+											<td>0455104000276993</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">138</td>
+											<td>IDBI BANK</td>
+											<td>Savings</td>
+											<td>IDBI - ADHAR OLAHKPATRA (UTD)</td>
+											<td>0455104000276979</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">139</td>
+											<td>IDBI BANK</td>
+											<td>Savings</td>
+											<td>IDBI - SATIS / SKYWALK PROJECT</td>
+											<td>0455104000276986</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">140</td>
+											<td>IDBI BANK</td>
+											<td>Savings</td>
+											<td>IDBI - ROAD TRENCHES</td>
+											<td>0455104000276962</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">141</td>
+											<td>IDBI BANK</td>
+											<td>Savings</td>
+											<td>IDBI - MSJN MAHA RASTE YOJANA PHASE 2 NIDHI KHATE</td>
+											<td>0455104000276863</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">142</td>
+											<td>IDBI BANK</td>
+											<td>Savings</td>
+											<td>IDBI - KDMC M S J N MAHA RASTE DEV YOJANA PHASE 1 NIDHI KHATE</td>
+											<td>0455104000276870</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">143</td>
+											<td>IDBI BANK</td>
+											<td>Savings</td>
+											<td>IDBI - JNNURM, PANI PURVATHA VITARAN VYAVASTHA</td>
+											<td>0455104000276887</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">144</td>
+											<td>IDBI BANK</td>
+											<td>Savings</td>
+											<td>IDBI - JNNURM.150 DLL PANI PURVATHA PRAKALP</td>
+											<td>0455104000276894</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">145</td>
+											<td>IDBI BANK</td>
+											<td>Savings</td>
+											<td>IDBI - BSUP BENEFITIORIS MAINTENANCE</td>
+											<td>0455104000276832</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">146</td>
+											<td>IDBI BANK</td>
+											<td>Savings</td>
+											<td>IDBI - BSUP BENEFITIORES CONTRIBUTION</td>
+											<td>0455104000276849</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">147</td>
+											<td>IDBI BANK</td>
+											<td>Savings</td>
+											<td>IDBI - B.S.U.P. PHASE-II</td>
+											<td>0455104000276856</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">148</td>
+											<td>IDBI BANK</td>
+											<td>Savings</td>
+											<td>IDBI - AMRUT- MALNISSARAN PHASE II </td>
+											<td>0455104000276818</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">149</td>
+											<td>IDBI BANK</td>
+											<td>Savings</td>
+											<td>IDBI - AMRUT- MALNISSARAN PHASE I</td>
+											<td>0455104000276825</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">150</td>
+											<td>IDBI BANK</td>
+											<td>Savings</td>
+											<td>IDBI - B.O.T FUND</td>
+											<td>0455104000276931</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">151</td>
+											<td>IDBI BANK</td>
+											<td>Savings</td>
+											<td>IDBI - TREE FUND</td>
+											<td>0455104000276955</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">152</td>
+											<td>IDBI BANK</td>
+											<td>Savings</td>
+											<td>IDBI - BSUP PROJECT GHARKUL SALE</td>
+											<td>0455104000276948</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">153</td>
+											<td>IDBI BANK</td>
+											<td>Savings</td>
+											<td>IDBI - MMRDA ROAD WORK</td>
+											<td>0455104000277013</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">154</td>
+											<td>IDBI BANK</td>
+											<td>Savings</td>
+											<td>KALYAN DOMBIVILI MAHANAGAR PALIKA PARIKSHA SHULK NIDHI KHATE</td>
+											<td>0455104000277006</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">155</td>
+											<td>IDBI BANK</td>
+											<td>Savings</td>
+											<td>IDBI - SATIS SKYWALK KALYAN EAST</td>
+											<td>0455104000277020</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">156</td>
+											<td>INDIAN BANK</td>
+											<td>Savings</td>
+											<td>EDUCATION GENERAL FUND</td>
+											<td>6315692048</td>
+											<td style="text-align: right">1,26,642.50</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">1,26,642.50</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">157</td>
+											<td>INDIAN BANK</td>
+											<td>Current</td>
+											<td>MSJN PHASE -I, KALYAN</td>
+											<td>50057465899</td>
+											<td style="text-align: right">51,805.55</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">51,805.55</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">158</td>
+											<td>INDIAN BANK</td>
+											<td>Current</td>
+											<td>MSJN PHASE -II , KALYAN</td>
+											<td>50142112097</td>
+											<td style="text-align: right">73,345.23</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">73,345.23</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">159</td>
+											<td>INDIAN BANK</td>
+											<td>Savings</td>
+											<td>HEAD OFFICE- BHARATRATNA DR. BABASAHEB AMBEDKAR AMJIK VIKAS YOJNA ACCOUNT </td>
+											<td>50112545061</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">160</td>
+											<td>INDIAN BANK</td>
+											<td>Savings</td>
+											<td>HEAD OFFICE- भानिनि शिक्षण विभाग) बचत खाते KALYAN</td>
+											<td>6315689830</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">161</td>
+											<td>INDIAN BANK</td>
+											<td>Current</td>
+											<td>SWACCHA MAHARASHTRA ABHIYAN NAGARI</td>
+											<td>7255578162</td>
+											<td style="text-align: right">1,41,53,754.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">1,41,53,754.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">162</td>
+											<td>INDIAN BANK</td>
+											<td>Savings</td>
+											<td>BHARATRATNA DR BABASAHEB AMBEDKAR SAMAJIK VIKAS YOJANA</td>
+											<td>50511905429</td>
+											<td style="text-align: right">34,540.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">34,540.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">163</td>
+											<td>INDIAN OVERSEAS BANK</td>
+											<td>Savings</td>
+											<td>LBT</td>
+											<td>89702000001077</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">164</td>
+											<td>INDUSIND BANK</td>
+											<td>Current</td>
+											<td>ONLINE-WEB PAYMENT</td>
+											<td>200998944144</td>
+											<td style="text-align: right">17,45,121.84</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">17,45,121.84</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">165</td>
+											<td>INDUSIND BANK</td>
+											<td>Savings</td>
+											<td>MULBHUT SUVIDHYA, BASIC SERVICES</td>
+											<td>100025707103</td>
+											<td style="text-align: right">76,38,923.04</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">76,38,923.04</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">166</td>
+											<td>KOTAK MAHINDRA BANK LIMITED</td>
+											<td>Savings</td>
+											<td>LBT</td>
+											<td>6111276877</td>
+											<td style="text-align: right">6,85,775.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">6,85,775.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">167</td>
+											<td>STATE BANK OF INDIA</td>
+											<td>Current</td>
+											<td>EMPLOYEE PROVIDENT FUND (EPF) FUND </td>
+											<td>36150254435</td>
+											<td style="text-align: right">1,14,95,134.50</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">1,14,95,134.50</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">168</td>
+											<td>STATE BANK OF INDIA</td>
+											<td>Current</td>
+											<td>E-TENDER</td>
+											<td>10898834053</td>
+											<td style="text-align: right">30,24,11,476.59</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">30,24,11,476.59</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">169</td>
+											<td>STATE BANK OF INDIA</td>
+											<td>Savings</td>
+											<td>ONLINE PAYMENT</td>
+											<td>35742402719</td>
+											<td style="text-align: right">24,04,553.92</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">24,04,553.92</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">170</td>
+											<td>SYNDICATEBANK</td>
+											<td>Savings</td>
+											<td>FIRTA PARIKRAMA</td>
+											<td>54721010001618</td>
+											<td style="text-align: right">6,27,042.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">6,27,042.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">171</td>
+											<td>UNION BANK OF INDIA</td>
+											<td>Current</td>
+											<td>SUVARNA JAYANTI SHAHARI ROJGAR YOJNA</td>
+											<td>320302010088376</td>
+											<td style="text-align: right">59,281.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">59,281.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">172</td>
+											<td>UNION BANK OF INDIA</td>
+											<td>Current</td>
+											<td>COMPUTER REPLICATION PROGRAMME</td>
+											<td>320302010087998</td>
+											<td style="text-align: right">97,51,964.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">97,51,964.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">173</td>
+											<td>UNION BANK OF INDIA</td>
+											<td>Current</td>
+											<td>MAHA.S.J.N.M.A) GHANKACHARA VYAVASTHAPAN</td>
+											<td>320302010087996</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">174</td>
+											<td>UNION BANK OF INDIA</td>
+											<td>Current</td>
+											<td>AMRUT - GREEN ZONE </td>
+											<td>320302010096133</td>
+											<td style="text-align: right">3,53,94,648.86</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">3,53,94,648.86</td>
+										</tr>
+									
+										<tr>
+											<td style="text-align: right">175</td>
+											<td>UNION BANK OF INDIA</td>
+											<td>Current</td>
+											<td>AMRUT - WATER SUPPLY </td>
+											<td>320302010096134</td>
+											<td style="text-align: right">89,01,998.97</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">0.00</td>
+											<td style="text-align: right">89,01,998.97</td>
+										</tr>
+									
+								</tbody>
+								<tfoot class="avoid-sort">
+									<tr>
+										<th colspan="5" class="text-right">Total</th>
+										<th style="text-align: right">13,92,46,80,606.47</th>
+										<th style="text-align: right">0.00</th>
+										<th style="text-align: right">0.00</th>
+										<th style="text-align: right">13,92,46,80,606.47</th>
+									</tr>
+								</tfoot>
+							</table>
+						</div>
+					</div>
+			</form>
+			</div>
+			<div class="text-center hidden-print padding-10">
+					<button onclick="PrintDiv('');"
+						class="btn btn-primary hidden-print" type="button" title="Print">
+						<i class="fa fa-print"></i> Print
+					</button>
+					<button type="button" class="btn btn-danger"
+						onclick="window.location.href='AccountDailyReports.html'" title="Back">
+						<i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+						Back
+					</button>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+
+
