@@ -7,6 +7,7 @@ for transient network errors without retrying authentication failures.
 from __future__ import annotations
 
 import logging
+import ssl
 import time
 from typing import Any, Dict, Optional
 import requests
@@ -37,6 +38,14 @@ class KDMCNetworkError(KDMCClientError):
 from urllib3.util.ssl_ import create_urllib3_context
 
 
+def build_legacy_compatible_ssl_context() -> ssl.SSLContext:
+    """Create a context compatible with the portal's older TLS renegotiation behavior."""
+    ctx = create_urllib3_context(ciphers="DEFAULT:@SECLEVEL=2")
+    if hasattr(ssl, "OP_LEGACY_SERVER_CONNECT"):
+        ctx.options |= ssl.OP_LEGACY_SERVER_CONNECT
+    return ctx
+
+
 class KDMCSSLAdapter(HTTPAdapter):
     """
     SSL adapter that configures compatible cipher suites (DEFAULT:@SECLEVEL=2)
@@ -45,8 +54,7 @@ class KDMCSSLAdapter(HTTPAdapter):
 
     def init_poolmanager(self, *args, **kwargs):
         try:
-            ctx = create_urllib3_context(ciphers="DEFAULT:@SECLEVEL=2")
-            kwargs["ssl_context"] = ctx
+            kwargs["ssl_context"] = build_legacy_compatible_ssl_context()
         except Exception:
             pass
         return super().init_poolmanager(*args, **kwargs)

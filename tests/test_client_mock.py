@@ -7,7 +7,7 @@ import pytest
 import requests
 
 from app.auth import SessionExpiredError, SessionManager
-from app.client import KDMCClient, KDMCNetworkError
+from app.client import KDMCClient, KDMCNetworkError, build_legacy_compatible_ssl_context
 from app.config import AppConfig
 
 
@@ -67,6 +67,16 @@ def test_fetch_report_success(mock_config: AppConfig):
         assert kwargs["data"]["fromDate"] == "10/10/2026"
         assert kwargs["data"]["toDate"] == "10/10/2026"
         assert kwargs["data"]["reportTypeCode"] == "BAS"
+
+
+def test_legacy_renegotiation_flag_is_enabled_when_supported():
+    import ssl
+
+    ctx = build_legacy_compatible_ssl_context()
+    if hasattr(ssl, "OP_LEGACY_SERVER_CONNECT"):
+        assert ctx.options & ssl.OP_LEGACY_SERVER_CONNECT
+    else:
+        assert True
 
 
 def test_fetch_report_auth_failure_no_retries(mock_config: AppConfig):
