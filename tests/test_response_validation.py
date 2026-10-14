@@ -64,6 +64,14 @@ def test_validate_response_missing_receipt_container():
     assert "Missing expected report container" in res.error_message
 
 
+def test_validate_response_no_records_without_receipt_container():
+    html = "<html><body><div class='alert alert-danger'>No records found for the selected date.</div></body></html>"
+    res = ReportParser.validate_response(html)
+    assert res.is_valid is True
+    assert res.is_empty is True
+    assert "account.no.record" in res.error_message
+
+
 def test_validate_response_missing_title_keyword():
     html = "<div id='receipt'><table><tr><td>Data without title</td></tr></table></div>"
     res = ReportParser.validate_response(html)

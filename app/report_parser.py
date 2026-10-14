@@ -54,11 +54,27 @@ class ReportParser:
                     error_message="No records found for the requested date (KDMC account.no.record).",
                 )
 
-        # 2. Check for receipt container
+        # 2. Treat common KDMC no-record pages as valid empty responses even when
+        # the portal omits the usual <div id='receipt'> container.
+        text_lower = html_content.lower()
+        no_records_markers = (
+            "no records found",
+            "account.no.record",
+            "no record found",
+            "no data found",
+        )
+        if any(marker in text_lower for marker in no_records_markers):
+            return ReportValidationResult(
+                is_valid=True,
+                is_empty=True,
+                error_message="No records found for the requested date (KDMC account.no.record).",
+            )
+
+        # 3. Check for receipt container
         receipt_div = soup.find(id="receipt")
         if not receipt_div:
             # Check if login or generic error page
-            if "login" in html_content.lower() or "j_username" in html_content:
+            if "login" in text_lower or "j_username" in text_lower:
                 return ReportValidationResult(
                     is_valid=False,
                     error_message="Response appears to be a login page, not a report.",
