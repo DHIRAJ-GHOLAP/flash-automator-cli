@@ -414,8 +414,13 @@ class CashbookRunner:
         """
         import calendar
         month_name = calendar.month_name[self.month]
-        out_dir = Path(self.config.output_dir)
-        out_dir.mkdir(parents=True, exist_ok=True)
+        from app.pdf_merge import organize_month_pdfs
+
+        out_dir = organize_month_pdfs(
+            input_dir=self.config.output_dir,
+            month=self.month,
+            year=self.year,
+        )
 
         items = self.date_engine.get_all_items()
         included_items = [it for it in items if it.is_included]
@@ -507,7 +512,7 @@ class CashbookRunner:
 
         from app.pdf_merge import generate_final_cashbook
         cashbook_path, total_reports, total_pages = generate_final_cashbook(
-            input_dir=self.config.output_dir,
+            input_dir=out_dir,
             output_path=self.output_file,
             month=self.month,
             year=self.year,

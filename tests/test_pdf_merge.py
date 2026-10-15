@@ -49,6 +49,16 @@ def test_get_sorted_statement_pdfs(tmp_path: Path):
     ]
 
 
+def test_get_sorted_statement_pdfs_finds_month_folders(tmp_path: Path):
+    month_dir = tmp_path / "July_2023"
+    month_dir.mkdir()
+    _create_dummy_pdf(month_dir / "BankStatement_01-07-2023.pdf")
+
+    assert get_sorted_statement_pdfs(tmp_path) == [
+        month_dir / "BankStatement_01-07-2023.pdf",
+    ]
+
+
 def test_merge_statement_pdfs_with_blank_page(tmp_path: Path):
     # PDF 1: 3 pages
     # PDF 2: 2 pages

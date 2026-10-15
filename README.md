@@ -97,6 +97,7 @@ python3 -m app.cli cashbook --year 2023 --skip-download
 ```
 
 Each monthly run also creates separate, month-specific merged PDFs for bank statements, deposit slips, and payment slips, alongside `Final_Cashbook_{Month}_{Year}.pdf`.
+All PDFs for that period are stored together in `output/{Month}_{Year}/` (for example, `output/July_2023/`). A year run creates one folder for each month, and existing root-level PDFs are moved into the matching folder when that month is processed.
 
 **Real-Time Output Example:**
 ```text

@@ -8,6 +8,7 @@ from __future__ import annotations
 import datetime
 import logging
 import re
+import shutil
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
@@ -78,6 +79,46 @@ def extract_date_from_filename(filename: str) -> Optional[datetime.date]:
     return None
 
 
+def get_month_output_dir(input_dir: Path | str, month: int, year: int) -> Path:
+    """Return the output folder for a month, named like 'July_2023'."""
+    month_name = datetime.date(year, month, 1).strftime("%B")
+    return Path(input_dir) / f"{month_name}_{year}"
+
+
+def organize_month_pdfs(input_dir: Path | str, month: int, year: int) -> Path:
+    """Move matching root-level source and generated PDFs into their month folder."""
+    root = Path(input_dir)
+    root.mkdir(parents=True, exist_ok=True)
+    month_dir = get_month_output_dir(root, month, year)
+    month_dir.mkdir(parents=True, exist_ok=True)
+    month_name = datetime.date(year, month, 1).strftime("%B")
+    generated_suffix = f"_{month_name}_{year}.pdf".lower()
+
+    for source in root.glob("*.pdf"):
+        report_date = extract_date_from_filename(source.name)
+        is_monthly_output = (
+            source.name.startswith(("Merged_", "Final_Cashbook_"))
+            and source.name.lower().endswith(generated_suffix)
+        )
+        belongs_to_month = (
+            report_date is not None
+            and report_date.month == month
+            and report_date.year == year
+        ) or is_monthly_output
+        if not belongs_to_month:
+            continue
+
+        destination = month_dir / source.name
+        if destination.exists():
+            raise FileExistsError(
+                f"Cannot organize {source}: destination already exists ({destination})"
+            )
+        shutil.move(str(source), str(destination))
+        logger.info("Moved %s into %s", source.name, month_dir.name)
+
+    return month_dir
+
+
 def get_sorted_statement_pdfs(
     input_dir: Path | str,
     prefix: Optional[str] = None,
@@ -91,7 +132,7 @@ def get_sorted_statement_pdfs(
     if not directory.exists() or not directory.is_dir():
         raise FileNotFoundError(f"Directory not found: {directory}")
 
-    pdf_files = list(directory.glob("*.pdf"))
+    pdf_files = list(directory.rglob("*.pdf"))
     # Exclude any previously generated merged PDFs or cashbooks
     pdf_files = [
         f for f in pdf_files
@@ -244,7 +285,7 @@ def get_cashbook_ordered_pdfs(
     if not directory.exists() or not directory.is_dir():
         raise FileNotFoundError(f"Directory not found: {directory}")
 
-    pdf_files = list(directory.glob("*.pdf"))
+    pdf_files = list(directory.rglob("*.pdf"))
     # Exclude any merged files or existing cashbooks
     pdf_files = [
         f for f in pdf_files
