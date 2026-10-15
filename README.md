@@ -88,7 +88,15 @@ python3 -m app.cli cashbook --period 07/2023 --delay 2.0
 
 # Exclude Sundays or custom dates:
 python3 -m app.cli cashbook --period 07/2023 --skip-sundays --exclude-dates 15/07/2023,24/07/2023
+
+# Generate all 12 monthly cashbooks for a year:
+python3 -m app.cli cashbook --year 2023
+
+# Assemble all 12 months from PDFs already in the output directory:
+python3 -m app.cli cashbook --year 2023 --skip-download
 ```
+
+Each monthly run also creates separate, month-specific merged PDFs for bank statements, deposit slips, and payment slips, alongside `Final_Cashbook_{Month}_{Year}.pdf`.
 
 **Real-Time Output Example:**
 ```text

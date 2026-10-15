@@ -113,6 +113,45 @@ def get_sorted_statement_pdfs(
     return sorted(pdf_files, key=sort_key)
 
 
+def generate_monthly_report_merges(
+    input_dir: Path | str,
+    month: int,
+    year: int,
+    insert_blank_page: bool = True,
+) -> List[Tuple[Path, int, int]]:
+    """Merge each report type for one month into its own period-specific PDF."""
+    month_name = datetime.date(year, month, 1).strftime("%B")
+    merged_outputs: List[Tuple[Path, int, int]] = []
+    report_types = (
+        ("BankStatement", "BankStatements"),
+        ("DepositSlip", "DepositSlips"),
+        ("PaymentSlip", "PaymentSlips"),
+    )
+
+    for prefix, output_label in report_types:
+        monthly_files = [
+            path
+            for path in get_sorted_statement_pdfs(input_dir, prefix=prefix)
+            if (report_date := extract_date_from_filename(path.name)) is not None
+            and report_date.month == month
+            and report_date.year == year
+        ]
+        if not monthly_files:
+            logger.warning("No %s PDFs found for %s %s; skipping category merge.", prefix, month_name, year)
+            continue
+
+        output_path = Path(input_dir) / f"Merged_{output_label}_{month_name}_{year}.pdf"
+        merged_outputs.append(
+            merge_statement_pdfs(
+                pdf_paths=monthly_files,
+                output_path=output_path,
+                insert_blank_page=insert_blank_page,
+            )
+        )
+
+    return merged_outputs
+
+
 def merge_statement_pdfs(
     pdf_paths: List[Path],
     output_path: Path | str,

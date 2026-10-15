@@ -399,6 +399,25 @@ def cmd_cashbook(args: argparse.Namespace, config: AppConfig) -> int:
     skip_download = getattr(args, "skip_download", False)
 
     # If period/month/year not specified but skip_download requested, allow auto-detection from existing files
+    if year is not None and month is None and not getattr(args, "period", None):
+        if args.output_file:
+            logger.error("--output-file cannot be used with an annual --year run; monthly filenames are generated automatically.")
+            return 1
+
+        logger.info("--- Running all 12 monthly cashbooks for %s ---", year)
+        results = []
+        for annual_month in range(1, 13):
+            monthly_args = argparse.Namespace(**vars(args))
+            monthly_args.period = f"{annual_month:02d}/{year}"
+            monthly_args.month = None
+            monthly_args.year = None
+            monthly_args.output_file = None
+            result = cmd_cashbook(monthly_args, config)
+            results.append(result)
+        failed_months = sum(result != 0 for result in results)
+        logger.info("Annual cashbook run completed: %s months processed, %s failed.", len(results), failed_months)
+        return 1 if failed_months else 0
+
     if month is None or year is None:
         if skip_download:
             try:
@@ -693,7 +712,7 @@ def build_parser() -> argparse.ArgumentParser:
         "--year",
         type=int,
         default=None,
-        help="Four-digit year (e.g. 2023)",
+        help="Four-digit year (e.g. 2023); without --month, process all 12 months",
     )
     p_cash.add_argument(
         "--input-dir",

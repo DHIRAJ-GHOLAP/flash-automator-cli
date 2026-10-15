@@ -8,6 +8,7 @@ import requests
 from app.batch_runner import CashbookRunner
 from app.cli import build_parser, cmd_cashbook, main
 from app.config import AppConfig
+from app.pdf_merge import generate_monthly_report_merges
 
 
 def _create_dummy_pdf(path: Path, num_pages: int = 1) -> Path:
@@ -56,11 +57,35 @@ def test_cashbook_runner_with_existing_files(tmp_path: Path):
         assert out_path.name == "Final_Cashbook_July_2023.pdf"
         assert reports_merged == 6
         assert total_pages == 11  # 6 docs + 5 blank separator pages
+        assert (tmp_path / "Merged_BankStatements_July_2023.pdf").exists()
+        assert (tmp_path / "Merged_DepositSlips_July_2023.pdf").exists()
+        assert (tmp_path / "Merged_PaymentSlips_July_2023.pdf").exists()
 
         # Because files were valid and resume=True, client should not have been called
         mock_client.fetch_bank_statement.assert_not_called()
         mock_client.fetch_deposit_slip.assert_not_called()
         mock_client.fetch_payment_slip.assert_not_called()
+
+
+def test_generate_monthly_report_merges_filters_to_period(tmp_path: Path):
+    for day in (1, 2):
+        _create_dummy_pdf(tmp_path / f"BankStatement_{day:02d}-07-2023.pdf")
+        _create_dummy_pdf(tmp_path / f"DepositSlip_{day:02d}-07-2023.pdf")
+        _create_dummy_pdf(tmp_path / f"PaymentSlip_{day:02d}-07-2023.pdf")
+    _create_dummy_pdf(tmp_path / "BankStatement_01-08-2023.pdf")
+    _create_dummy_pdf(tmp_path / "DepositSlip_01-08-2023.pdf")
+    _create_dummy_pdf(tmp_path / "PaymentSlip_01-08-2023.pdf")
+
+    merged = generate_monthly_report_merges(tmp_path, month=7, year=2023)
+
+    assert {path.name for path, _, _ in merged} == {
+        "Merged_BankStatements_July_2023.pdf",
+        "Merged_DepositSlips_July_2023.pdf",
+        "Merged_PaymentSlips_July_2023.pdf",
+    }
+    for path, document_count, page_count in merged:
+        assert document_count == 2
+        assert page_count == 3
 
 
 def test_cashbook_runner_downloads_missing_files(tmp_path: Path):
@@ -134,3 +159,23 @@ def test_cli_cashbook_command(tmp_path: Path):
     exit_code = cmd_cashbook(args, config)
     assert exit_code == 0
     assert (tmp_path / "Final_Cashbook_July_2023.pdf").exists()
+
+
+def test_cli_cashbook_year_builds_all_months_from_existing_pdfs(tmp_path: Path):
+    for month in range(1, 13):
+        for prefix in ("BankStatement", "DepositSlip", "PaymentSlip"):
+            _create_dummy_pdf(tmp_path / f"{prefix}_01-{month:02d}-2023.pdf")
+
+    parser = build_parser()
+    args = parser.parse_args([
+        "cashbook", "--year", "2023", "--output-dir", str(tmp_path), "--skip-download",
+    ])
+    config = AppConfig()
+
+    assert cmd_cashbook(args, config) == 0
+    for month in range(1, 13):
+        month_name = __import__("calendar").month_name[month]
+        assert (tmp_path / f"Final_Cashbook_{month_name}_2023.pdf").exists()
+        assert (tmp_path / f"Merged_BankStatements_{month_name}_2023.pdf").exists()
+        assert (tmp_path / f"Merged_DepositSlips_{month_name}_2023.pdf").exists()
+        assert (tmp_path / f"Merged_PaymentSlips_{month_name}_2023.pdf").exists()

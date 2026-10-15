@@ -483,7 +483,23 @@ class CashbookRunner:
 
                 day_idx += 1
 
-        # Step 2: Compile Final Cashbook
+        # Step 2: Merge each report type separately for this month.
+        from app.pdf_merge import generate_monthly_report_merges
+
+        for merged_path, report_count, page_count in generate_monthly_report_merges(
+            input_dir=out_dir,
+            month=self.month,
+            year=self.year,
+            insert_blank_page=self.insert_blank_page,
+        ):
+            logger.info(
+                "Generated monthly report merge: %s (%s reports, %s pages)",
+                merged_path,
+                report_count,
+                page_count,
+            )
+
+        # Step 3: Compile Final Cashbook
         logger.info("=" * 70)
         logger.info(f"  ASSEMBLING FINAL CASHBOOK: {month_name} {self.year}")
         logger.info("  Sequence: Bank Statement -> [blank] -> Deposit Slip -> [blank] -> Payment Slip -> [blank]")
