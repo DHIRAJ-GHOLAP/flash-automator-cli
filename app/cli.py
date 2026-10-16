@@ -70,7 +70,11 @@ def cmd_test_date(args: argparse.Namespace, config: AppConfig) -> int:
     # 1. Acquire / verify CSRF token (only needed for MainetService BAS forms)
     if not config.is_birt_report and not session_mgr.csrf_token:
         logger.info("Attempting to acquire CSRF token from portal...")
-        client.refresh_csrf_token()
+        try:
+            client.refresh_csrf_token()
+        except SessionExpiredError as e:
+            logger.error(f"Session Authentication Failed: {e}")
+            return 2
 
     # 2. Check target output path and duplicate protection
     prefix = config.filename_prefix

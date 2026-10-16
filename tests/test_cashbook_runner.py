@@ -5,8 +5,9 @@ import pypdf
 import pytest
 import requests
 
+from app.auth import SessionExpiredError
 from app.batch_runner import CashbookRunner
-from app.cli import build_parser, cmd_cashbook, main
+from app.cli import build_parser, cmd_cashbook, cmd_test_date
 from app.config import AppConfig
 from app.pdf_merge import generate_monthly_report_merges
 
@@ -161,6 +162,19 @@ def test_cli_cashbook_command(tmp_path: Path):
     exit_code = cmd_cashbook(args, config)
     assert exit_code == 0
     assert (tmp_path / "July_2023" / "Final_Cashbook_July_2023.pdf").exists()
+
+
+def test_cli_test_date_handles_session_expiry_while_refreshing_csrf():
+    args = build_parser().parse_args([
+        "test-date", "--date", "01/04/2024", "--report-type", "BAS",
+    ])
+    config = AppConfig(session_cookie="test-session-cookie")
+
+    with patch(
+        "app.cli.KDMCClient.refresh_csrf_token",
+        side_effect=SessionExpiredError("portal redirected to unauthenticated Home page"),
+    ):
+        assert cmd_test_date(args, config) == 2
 
 
 def test_cli_cashbook_year_builds_all_months_from_existing_pdfs(tmp_path: Path):

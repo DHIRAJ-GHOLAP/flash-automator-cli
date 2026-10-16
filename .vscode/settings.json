@@ -1,3 +1,9 @@
 {
-    "python.terminal.useEnvFile": true
+    "python.terminal.useEnvFile": true,
+    "chat.tools.terminal.autoApprove": {
+        "/^python -c 'from pathlib import Path; p=Path\\(\"/home/codespace/\\.vscode-remote/data/agentSessionData/47e69bdd-5ab5-4716-8ef7-0af635c2c62e/attachments/c17cf4f1-2f01-4244-abaf-232364a21c3b/file_\\.env\"\\); allowed=\\{\"KDMC_OUTPUT_DIR\",\"KDMC_REPORT_TYPE\",\"KDMC_DEBUG_DIR\",\"KDMC_BASE_URL\",\"KDMC_FIELD_ID\",\"KDMC_ACCOUNT_HEAD_ID\"\\}; print\\(\"\\\\n\"\\.join\\(line for line in p\\.read_text\\(\\)\\.splitlines\\(\\) if line\\.partition\\(\"=\"\\)\\[0\\]\\.strip\\(\\) in allowed\\)\\)'$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
 }
