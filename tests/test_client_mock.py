@@ -133,6 +133,45 @@ def test_fetch_report_retries_transient_server_error(mock_config: AppConfig):
         assert mock_post.call_count == 2
 
 
+def test_fetch_report_retries_empty_response(mock_config: AppConfig):
+    mock_empty_resp = MagicMock(spec=requests.Response)
+    mock_empty_resp.status_code = 200
+    mock_empty_resp.is_redirect = False
+    mock_empty_resp.text = ""
+    mock_empty_resp.headers = {}
+    mock_empty_resp.url = "https://kdmc.gov.in/MainetService/AccountFinancialReport.html?report"
+
+    mock_ok_resp = MagicMock(spec=requests.Response)
+    mock_ok_resp.status_code = 200
+    mock_ok_resp.is_redirect = False
+    mock_ok_resp.text = "<div id='receipt'><h2>Bank Account Wise Balance Statement</h2></div>"
+    mock_ok_resp.headers = {}
+    mock_ok_resp.url = "https://kdmc.gov.in/MainetService/AccountFinancialReport.html?report"
+
+    client = KDMCClient(mock_config)
+    with patch.object(client.session, "post", side_effect=[mock_empty_resp, mock_ok_resp]) as mock_post:
+        response = client.fetch_report("10/10/2026")
+
+    assert response is mock_ok_resp
+    assert mock_post.call_count == 2
+
+
+def test_fetch_report_empty_response_exhausts_retries(mock_config: AppConfig):
+    mock_empty_resp = MagicMock(spec=requests.Response)
+    mock_empty_resp.status_code = 200
+    mock_empty_resp.is_redirect = False
+    mock_empty_resp.text = ""
+    mock_empty_resp.headers = {}
+    mock_empty_resp.url = "https://kdmc.gov.in/MainetService/AccountFinancialReport.html?report"
+
+    client = KDMCClient(mock_config)
+    with patch.object(client.session, "post", return_value=mock_empty_resp) as mock_post:
+        with pytest.raises(KDMCNetworkError, match="Persistent empty response"):
+            client.fetch_report("10/10/2026")
+
+    assert mock_post.call_count == mock_config.max_retries + 1
+
+
 def test_fetch_report_connection_error_exhausts_retries(mock_config: AppConfig):
     client = KDMCClient(mock_config)
     with patch.object(client.session, "post", side_effect=requests.ConnectionError("Connection timed out")) as mock_post:

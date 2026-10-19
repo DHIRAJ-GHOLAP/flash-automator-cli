@@ -199,6 +199,21 @@ class KDMCClient:
                     else:
                         resp.raise_for_status()
 
+                if 200 <= resp.status_code < 300 and not (resp.text or "").strip():
+                    if retries < self.config.max_retries:
+                        retries += 1
+                        logger.warning(
+                            f"Empty HTTP {resp.status_code} response for {date_str}. "
+                            f"Retrying in {backoff:.1f}s (attempt {retries}/{self.config.max_retries})..."
+                        )
+                        time.sleep(backoff)
+                        backoff *= 1.5
+                        continue
+                    raise KDMCNetworkError(
+                        f"Persistent empty response requesting date {date_str} "
+                        f"(HTTP {resp.status_code}) after {retries + 1} attempts."
+                    )
+
                 # Success or client response
                 # Extract refreshed CSRF token if present
                 self.session_manager.extract_csrf_from_html(resp.text)
