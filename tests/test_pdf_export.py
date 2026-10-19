@@ -58,5 +58,5 @@ def test_render_html_to_pdf_real_sample(sample_report_html: str, tmp_path: Path)
     pdf_bytes = generated_path.read_bytes()
     is_valid, reason, page_count = validate_pdf_data(pdf_bytes)
     assert is_valid is True
-    assert page_count > 0
+    assert page_count <= 4
     assert len(pdf_bytes) > 20000  # Multi-page rendered statement is large

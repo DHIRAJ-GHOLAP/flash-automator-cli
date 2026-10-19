@@ -16,6 +16,8 @@ Unlike UI-based macro tools that simulate mouse coordinates, Flash Automator com
 4. **Final Cashbook Compilation**: Assembles the complete monthly cashbook in exact daily sequence (`Bank Statement -> [1 blank page] -> Deposit Slip -> [1 blank page] -> Payment Slip -> [1 blank page] -> Next Day...`), formatted specifically for physical duplex (double-sided) printing.
 5. **HO Main Branch Enforcement**: Automatically enforces **Ward 4 / fieldId 4** across all report endpoints.
 
+Bank Account Statements are rendered in compact A4 landscape format to fit dense reports into fewer pages. The smaller table text and spacing are optimized to fit the included 175-row report in 4 pages; exact page count can vary with report contents and installed fonts.
+
 ---
 
 ## Quick Start

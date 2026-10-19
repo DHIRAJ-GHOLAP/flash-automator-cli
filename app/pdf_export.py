@@ -199,7 +199,7 @@ def build_printable_html_document(
 <style>
 @page {{
     size: A4 landscape;
-    margin: 8mm 10mm 10mm 10mm;
+    margin: 5mm 6mm 7mm 6mm;
     @bottom-center {{
         content: "Page " counter(page) " of " counter(pages);
         font-family: Arial, sans-serif;
@@ -236,7 +236,7 @@ p {{
 table {{
     width: 100%;
     border-collapse: collapse;
-    margin-top: 8px;
+    margin-top: 4px;
     page-break-inside: auto;
 }}
 tr {{
@@ -251,8 +251,8 @@ tfoot {{
 }}
 th, td {{
     border: 1px solid #777;
-    padding: 3px 5px;
-    font-size: 8pt;
+    padding: 1px 2px;
+    font-size: 6.5pt;
     vertical-align: middle;
 }}
 th {{
