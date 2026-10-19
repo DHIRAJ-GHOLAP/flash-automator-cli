@@ -161,7 +161,27 @@ python3 -m app.cli test-date --date 01/07/2023 --report-type payment-slip
 
 ---
 
-### 4. Merge Statements with Blank Separator (`merge`)
+### 4. Month-Wise Income or Expenditure Report (`monthly-report`)
+
+Download a monthly classification report by report type, year, and month (not by date). The current month is used when `--year` and/or `--month` are omitted:
+
+```bash
+# Current month's Income report
+python3 -m app.cli monthly-report --report-type inc
+
+# October 2026 Expenditure report
+python3 -m app.cli monthly-report --report-type exp --year 2026 --month 10
+
+# Full names are also accepted
+python3 -m app.cli monthly-report --report-type income --year 2026 --month 10
+python3 -m app.cli monthly-report --report-type expenditure --year 2026 --month 10
+```
+
+This command always requests the BIRT **With Month** (`WM`) report. PDFs are saved in a month-specific folder such as `output/October_2026/MonthlyExpenditure_October_2026.pdf`. Use `--overwrite` to replace an existing report.
+
+---
+
+### 5. Merge Statements with Blank Separator (`merge`)
 
 Merge existing PDF reports of a specific type in chronological order:
 
@@ -178,7 +198,7 @@ python3 -m app.cli merge --prefix BankStatement --output-file Merged_BankStateme
 
 ---
 
-### 5. Date Schedule Preview (`generate-dates`)
+### 6. Date Schedule Preview (`generate-dates`)
 
 Preview the scheduled dates without making HTTP calls:
 

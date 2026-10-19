@@ -30,3 +30,4 @@ debug/
 *.pdf
 *.html
 !tests/fixtures/*.html
+income expenditure report monthwise hra.har

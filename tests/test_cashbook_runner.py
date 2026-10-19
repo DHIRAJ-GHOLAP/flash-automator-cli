@@ -7,7 +7,7 @@ import requests
 
 from app.auth import SessionExpiredError
 from app.batch_runner import CashbookRunner
-from app.cli import build_parser, cmd_cashbook, cmd_test_date
+from app.cli import build_parser, cmd_cashbook, cmd_monthly_report, cmd_test_date
 from app.config import AppConfig
 from app.pdf_merge import generate_monthly_report_merges
 
@@ -175,6 +175,40 @@ def test_cli_test_date_handles_session_expiry_while_refreshing_csrf():
         side_effect=SessionExpiredError("portal redirected to unauthenticated Home page"),
     ):
         assert cmd_test_date(args, config) == 2
+
+
+def test_cli_monthly_report_downloads_expenditure_pdf(tmp_path: Path):
+    parser = build_parser()
+    args = parser.parse_args([
+        "monthly-report",
+        "--report-type", "exp",
+        "--year", "2026",
+        "--month", "10",
+        "--output-dir", str(tmp_path),
+    ])
+    config = AppConfig()
+    pdf_path = tmp_path / "October_2026" / "MonthlyExpenditure_October_2026.pdf"
+    mock_response = MagicMock(spec=requests.Response)
+    mock_response.content = _create_dummy_pdf(tmp_path / "response.pdf").read_bytes()
+    mock_response.raise_for_status.return_value = None
+
+    with patch("app.cli.KDMCClient.fetch_monthly_income_expenditure", return_value=mock_response) as fetch:
+        assert cmd_monthly_report(args, config) == 0
+
+    fetch.assert_called_once_with(report_type="Expenditure", year=2026, month=10)
+    assert pdf_path.exists()
+
+
+def test_cli_monthly_report_rejects_invalid_report_type(tmp_path: Path):
+    args = build_parser().parse_args([
+        "monthly-report",
+        "--report-type", "bas",
+        "--year", "2026",
+        "--month", "10",
+        "--output-dir", str(tmp_path),
+    ])
+
+    assert cmd_monthly_report(args, AppConfig()) == 1
 
 
 def test_cli_cashbook_year_builds_all_months_from_existing_pdfs(tmp_path: Path):

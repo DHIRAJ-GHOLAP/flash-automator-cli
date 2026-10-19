@@ -140,3 +140,30 @@ def test_fetch_report_connection_error_exhausts_retries(mock_config: AppConfig):
             client.fetch_report("10/10/2026")
         # max_retries is 2, so initial try + 2 retries = 3 calls
         assert mock_post.call_count == 3
+
+
+def test_fetch_monthly_income_expenditure_params(mock_config: AppConfig):
+    mock_resp = MagicMock(spec=requests.Response)
+    mock_resp.status_code = 200
+    mock_resp.is_redirect = False
+    mock_resp.text = ""
+    mock_resp.headers = {}
+    mock_resp.url = "https://kdmc.gov.in/birtPA/output"
+
+    client = KDMCClient(mock_config)
+    with patch.object(client.session, "get", return_value=mock_resp) as mock_get:
+        response = client.fetch_monthly_income_expenditure("Expenditure", 2026, 10)
+
+    assert response is mock_resp
+    mock_get.assert_called_once()
+    args, kwargs = mock_get.call_args
+    assert args[0] == "https://kdmc.gov.in/birtPA/output"
+    assert kwargs["params"] == {
+        "__report": "MonthlyClassificationofReports.rptdesign",
+        "__format": "pdf",
+        "ULBName": "1",
+        "ReportType": "Expenditure",
+        "SubReportType": "WM",
+        "Year": "2026",
+        "Month": "10",
+    }

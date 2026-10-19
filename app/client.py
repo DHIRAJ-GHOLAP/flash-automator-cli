@@ -336,6 +336,81 @@ class KDMCClient:
                 else:
                     raise KDMCNetworkError(f"Persistent network failure requesting date {date_str}: {e}") from e
 
+    def fetch_monthly_income_expenditure(
+        self,
+        report_type: str,
+        year: int,
+        month: int,
+    ) -> requests.Response:
+        """Fetch the month-wise Income or Expenditure classification report."""
+        params = {
+            "__report": "MonthlyClassificationofReports.rptdesign",
+            "__format": "pdf",
+            "ULBName": str(self.config.ulb_name),
+            "ReportType": report_type,
+            "SubReportType": "WM",
+            "Year": str(year),
+            "Month": str(month),
+        }
+        retries = 0
+        backoff = self.config.retry_backoff
+
+        while True:
+            try:
+                logger.debug(
+                    "Requesting monthly %s report for %02d/%d (attempt %d)",
+                    report_type,
+                    month,
+                    year,
+                    retries + 1,
+                )
+                resp = self.session.get(
+                    self.config.birt_output_url,
+                    params=params,
+                    timeout=(self.config.connect_timeout, self.config.read_timeout),
+                    allow_redirects=True,
+                )
+
+                is_expired, reason = self.session_manager.check_session_status(resp)
+                if is_expired:
+                    logger.error("Authentication failure: %s", reason)
+                    raise SessionExpiredError(f"Session expired or invalid: {reason}")
+
+                if resp.status_code in (502, 503, 504):
+                    if retries < self.config.max_retries:
+                        retries += 1
+                        logger.warning(
+                            "HTTP %s received. Retrying in %.1fs (attempt %s/%s)...",
+                            resp.status_code,
+                            backoff,
+                            retries,
+                            self.config.max_retries,
+                        )
+                        time.sleep(backoff)
+                        backoff *= 1.5
+                        continue
+                    resp.raise_for_status()
+
+                return resp
+
+            except (requests.ConnectionError, requests.Timeout) as e:
+                if retries < self.config.max_retries:
+                    retries += 1
+                    logger.warning(
+                        "Network error (%s). Retrying in %.1fs (attempt %s/%s)...",
+                        type(e).__name__,
+                        backoff,
+                        retries,
+                        self.config.max_retries,
+                    )
+                    time.sleep(backoff)
+                    backoff *= 1.5
+                    continue
+                raise KDMCNetworkError(
+                    f"Persistent network failure requesting monthly {report_type} report "
+                    f"for {month:02d}/{year}: {e}"
+                ) from e
+
     def fetch_report(self, date_str: str) -> requests.Response:
         """
         Fetch report for a single date, routing dynamically based on configured report type.

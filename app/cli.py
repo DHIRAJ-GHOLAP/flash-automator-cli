@@ -6,18 +6,22 @@ and date iteration previewing.
 from __future__ import annotations
 
 import argparse
+import datetime
 import logging
 import sys
 from pathlib import Path
 from typing import Optional, Sequence
 
+import requests
+
 from app.auth import SessionExpiredError, SessionManager
 from app.batch_runner import BatchRunner, CashbookRunner
-from app.client import KDMCClient
+from app.client import KDMCClient, KDMCClientError
 from app.config import AppConfig, load_config
 from app.date_engine import HTTPDateEngine, parse_date_string
 from app.logging_config import setup_logging
 from app.pdf_export import (
+    PDFValidationError,
     get_target_file_path,
     render_html_to_pdf,
     save_debug_html,
@@ -27,6 +31,85 @@ from app.pdf_export import (
 from app.report_parser import ReportParser
 
 logger = logging.getLogger("flash_automator.cli")
+
+
+def cmd_monthly_report(args: argparse.Namespace, config: AppConfig) -> int:
+    """Download one month-wise Income or Expenditure report."""
+    report_type_input = args.report_type.strip().lower()
+    if report_type_input in ("inc", "income"):
+        report_type = "Income"
+    elif report_type_input in ("exp", "expenditure"):
+        report_type = "Expenditure"
+    else:
+        logger.error(
+            "Invalid report type '%s'. Choose 'inc' (Income) or 'exp' (Expenditure).",
+            args.report_type,
+        )
+        return 1
+
+    today = datetime.date.today()
+    year = args.year if args.year is not None else today.year
+    month = args.month if args.month is not None else today.month
+    try:
+        period = datetime.date(year, month, 1)
+    except ValueError as e:
+        logger.error("Invalid report month or year: %s", e)
+        return 1
+
+    if args.output_dir:
+        config.output_dir = Path(args.output_dir)
+    if args.overwrite:
+        config.overwrite = True
+
+    month_name = period.strftime("%B")
+    target_dir = config.output_dir / f"{month_name}_{year}"
+    filename_prefix = "MonthlyIncome" if report_type == "Income" else "MonthlyExpenditure"
+    target_path = target_dir / f"{filename_prefix}_{month_name}_{year}.pdf"
+    if target_path.exists() and not config.overwrite:
+        logger.warning(
+            "File already exists: %s. Use --overwrite to download and replace.",
+            target_path,
+        )
+        return 0
+
+    session_mgr = SessionManager(
+        session_cookie=config.session_cookie,
+        csrf_token=config.csrf_token,
+    )
+    if not session_mgr.has_session_cookie:
+        logger.warning(
+            "No session cookie (JSESSIONID) configured in environment or .env. "
+            "Set KDMC_SESSION_COOKIE in .env to use an authorized session."
+        )
+
+    client = KDMCClient(config=config, session_manager=session_mgr)
+    try:
+        response = client.fetch_monthly_income_expenditure(
+            report_type=report_type,
+            year=year,
+            month=month,
+        )
+        response.raise_for_status()
+    except SessionExpiredError as e:
+        logger.error("Session Authentication Failed: %s", e)
+        return 2
+    except (KDMCClientError, requests.RequestException) as e:
+        logger.error("Monthly report request failed: %s", e)
+        return 1
+
+    try:
+        pdf_path = save_pdf_bytes(response.content, target_path, last_page_only=False)
+    except (PDFValidationError, OSError) as e:
+        logger.error("Monthly report PDF save failed: %s", e)
+        return 1
+
+    logger.info(
+        "Successfully generated monthly %s report: %s (%s bytes)",
+        report_type,
+        pdf_path,
+        pdf_path.stat().st_size,
+    )
+    return 0
 
 
 def cmd_test_date(args: argparse.Namespace, config: AppConfig) -> int:
@@ -556,6 +639,40 @@ def build_parser() -> argparse.ArgumentParser:
         help="Overwrite existing output PDF if present",
     )
 
+    # Subcommand: monthly-report
+    p_monthly = subparsers.add_parser(
+        "monthly-report",
+        help="Download a month-wise Income or Expenditure report",
+    )
+    p_monthly.add_argument(
+        "--report-type",
+        required=True,
+        help="Report type: 'inc' or 'income', or 'exp' or 'expenditure'",
+    )
+    p_monthly.add_argument(
+        "--year",
+        type=int,
+        default=None,
+        help="Report year (default: current year)",
+    )
+    p_monthly.add_argument(
+        "--month",
+        type=int,
+        default=None,
+        help="Report month number, 1-12 (default: current month)",
+    )
+    p_monthly.add_argument(
+        "--output-dir",
+        type=str,
+        default=None,
+        help="Directory to save generated PDF (default: ./output)",
+    )
+    p_monthly.add_argument(
+        "--overwrite",
+        action="store_true",
+        help="Overwrite an existing report PDF",
+    )
+
     # Subcommand: batch
     p_batch = subparsers.add_parser("batch", help="Execute sequential batch report generation")
     p_batch.add_argument(
@@ -801,6 +918,8 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
     if args.subcommand == "test-date":
         return cmd_test_date(args, config)
+    elif args.subcommand == "monthly-report":
+        return cmd_monthly_report(args, config)
     elif args.subcommand == "batch":
         return cmd_batch(args, config)
     elif args.subcommand == "merge":
