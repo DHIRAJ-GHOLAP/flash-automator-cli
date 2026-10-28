@@ -4,7 +4,7 @@ __pycache__/
 *$py.class
 *.so
 .Python
-env/
+
 venv/
 .venv/
 
@@ -19,10 +19,6 @@ htmlcov/
 *.log
 .DS_Store
 
-# Secrets & Environment variables
-.env
-.env.*
-!.env.example
 
 # Report Outputs & Diagnostics
 output/
