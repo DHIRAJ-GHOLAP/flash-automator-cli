@@ -364,6 +364,7 @@ def generate_final_cashbook(
     month: Optional[int] = None,
     year: Optional[int] = None,
     insert_blank_page: bool = True,
+    only_last_page_for_payment: bool = True,
 ) -> Tuple[Path, int, int]:
     """
     Assemble and merge the Final Cashbook PDF document for a specified month/year.
@@ -393,4 +394,5 @@ def generate_final_cashbook(
         output_path=out_file,
         insert_blank_page=insert_blank_page,
         only_last_page_for_slips=True,
+        only_last_page_for_payment=only_last_page_for_payment,
     )
