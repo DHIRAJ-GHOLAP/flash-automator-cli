@@ -418,6 +418,7 @@ class KDMCClient:
                         retries,
                         self.config.max_retries,
                     )
+                    
                     time.sleep(backoff)
                     backoff *= 1.5
                     continue
