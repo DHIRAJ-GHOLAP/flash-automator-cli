@@ -313,6 +313,7 @@ class CashbookRunner:
         skip_download: bool = False,
         insert_blank_page: bool = True,
         output_file: Optional[Path | str] = None,
+        last_page_only_payment: bool = True,
     ) -> None:
         self.client = client
         self.config = config
@@ -323,6 +324,7 @@ class CashbookRunner:
         self.insert_blank_page = insert_blank_page
         self.output_file = output_file
         self._cancelled = False
+        self.last_page_only_payment = last_page_only_payment
 
         import calendar
         last_day = calendar.monthrange(year, month)[1]
@@ -395,8 +397,10 @@ class CashbookRunner:
         try:
             resp = self.client.fetch_payment_slip(item.date_str)
             if resp.content.startswith(b"%PDF-"):
-                save_pdf_bytes(resp.content, target_path, last_page_only=True)
-                logger.info(f"  -> [3/3] Payment Slip:   Saved {target_path.name} (1-page summary)")
+                # Use self.last_page_only_payment instead of hardcoding True:
+                save_pdf_bytes(resp.content, target_path, last_page_only=self.last_page_only_payment)
+                page_desc = "1-page summary" if self.last_page_only_payment else "full pages"
+                logger.info(f"  -> [3/3] Payment Slip:   Saved {target_path.name} ({page_desc})")
                 return True
             else:
                 logger.error(f"  -> [3/3] Payment Slip:   Unexpected response: {resp.text[:200]}")
@@ -517,6 +521,7 @@ class CashbookRunner:
             month=self.month,
             year=self.year,
             insert_blank_page=self.insert_blank_page,
+            only_last_page_for_payment=self.last_page_only_payment,
         )
 
         logger.info(f"Successfully generated Final Cashbook: {cashbook_path}")
