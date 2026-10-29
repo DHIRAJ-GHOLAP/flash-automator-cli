@@ -33,6 +33,7 @@ from app.report_parser import ReportParser
 logger = logging.getLogger("flash_automator.cli")
 
 
+
 def cmd_monthly_report(args: argparse.Namespace, config: AppConfig) -> int:
     """Download one month-wise Income or Expenditure report."""
     report_type_input = args.report_type.strip().lower()
@@ -514,6 +515,7 @@ def cmd_cashbook(args: argparse.Namespace, config: AppConfig) -> int:
                     month=month,
                     year=year,
                     insert_blank_page=insert_blank,
+                    only_last_page_for_payment=last_page_only_payment,
                 )
                 logger.info(f"Successfully generated Final Cashbook: {final_path}")
                 logger.info(f"Total Daily Reports Merged: {count}")
@@ -560,7 +562,8 @@ def cmd_cashbook(args: argparse.Namespace, config: AppConfig) -> int:
         csrf_token=config.csrf_token,
     )
     client = KDMCClient(config=config, session_manager=session_mgr)
-
+    full_payment_slips = getattr(args, "full_payment_slips", False)
+    last_page_only_payment = not full_payment_slips
     runner = CashbookRunner(
         client=client,
         config=config,
@@ -571,6 +574,7 @@ def cmd_cashbook(args: argparse.Namespace, config: AppConfig) -> int:
         skip_download=skip_download,
         insert_blank_page=insert_blank,
         output_file=args.output_file,
+        last_page_only_payment=last_page_only_payment,  # <-- Pass to CashbookRunner
     )
 
     try:
@@ -894,6 +898,11 @@ def build_parser() -> argparse.ArgumentParser:
         "--no-blank-page",
         action="store_true",
         help="Do not insert a blank separator page between reports",
+    )
+    p_cash.add_argument(
+        "--full-payment-slips",
+        action="store_true",
+        help="Download and retain all pages of payment slips instead of trimming to the last summary page",
     )
 
     return parser
