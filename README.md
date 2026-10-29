@@ -75,6 +75,9 @@ Downloads all 3 reports (Bank Statement, Deposit Slip summary, Payment Slip summ
 # Run complete July 2023 cashbook workflow
 python3 -m app.cli cashbook --period 07/2023
 
+# This command will add all pages of payment slip instade of one
+python3 -m app.cli cashbook --period 03/2024 --full-payment-slips
+
 # Alternative period formats:
 python3 -m app.cli cashbook --period "July 2023"
 python3 -m app.cli cashbook --month 7 --year 2023
